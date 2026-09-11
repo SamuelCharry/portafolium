@@ -45,7 +45,7 @@ window.PORTFOLIO = {
         paragraphs: [
           "More about the problem, the process, and my contribution is coming soon.",
         ],
-        stack: [], // Completar con las tecnologías reales del proyecto.
+        stack: [], 
       },
       es: {
         title: "Clasificado",
@@ -129,7 +129,7 @@ window.PORTFOLIO = {
     },
     fitness: {
       repository: null,
-      demo: "https://samuelcharry.github.io/", // Enlace en vivo de Daily Fitness.
+      demo: "https://samuelcharry.github.io/daily-fitness-platform/", 
       en: {
         title: "Daily Fitness",
         category: "PERSONAL PROJECT",
