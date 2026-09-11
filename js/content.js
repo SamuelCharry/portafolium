@@ -129,7 +129,7 @@ window.PORTFOLIO = {
     },
     fitness: {
       repository: null,
-      demo: "https://samuelcharry.github.io/daily-fitness-platform/", 
+      demo: "https://samuelcharry.github.io/", 
       en: {
         title: "Daily Fitness",
         category: "PERSONAL PROJECT",
@@ -138,7 +138,7 @@ window.PORTFOLIO = {
           "Daily Fitness comes out of my passion for bodybuilding. I built it as a tracker to organize and log my training, day by day.",
           "The amount of misinformation in fitness genuinely frustrates me. So I made it a compilation of what I've tried and learned over the years — everything in one place, grounded in my own experience.",
         ],
-        stack: ["HTML", "CSS", "JavaScript"], // Ajusta a las tecnologías reales.
+        stack: ["HTML", "CSS", "JavaScript"], 
       },
       es: {
         title: "Daily Fitness",
