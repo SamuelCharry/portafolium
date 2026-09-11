@@ -1,7 +1,11 @@
-/* Interacciones con JavaScript nativo. El contenido principal funciona sin JS. */
+/* Interacciones con JavaScript nativo. El contenido principal funciona sin JS.
+   Idiomas: inglés por defecto (texto en el HTML) y español (atributos data-es).
+   La elección se recuerda en el navegador. */
 (() => {
   "use strict";
   const config = window.PORTFOLIO || {};
+
+  /* --- Enlaces sociales (correo, LinkedIn, GitHub) desde content.js --- */
   document.querySelectorAll("[data-social]").forEach((element) => {
     const key = element.dataset.social;
     const url =
@@ -12,9 +16,10 @@
         : config[key];
     if (!url) {
       const placeholder = document.createElement("span");
-      placeholder.textContent = element.textContent;
+      placeholder.innerHTML = element.innerHTML;
       placeholder.className = element.className;
       placeholder.dataset.social = key;
+      if (element.dataset.es) placeholder.dataset.es = element.dataset.es;
       placeholder.setAttribute("aria-disabled", "true");
       placeholder.title = "Link coming soon";
       element.replaceWith(placeholder);
@@ -23,7 +28,8 @@
     const link =
       element.tagName === "A" ? element : document.createElement("a");
     if (link !== element) {
-      link.textContent = element.textContent;
+      link.innerHTML = element.innerHTML;
+      if (element.dataset.es) link.dataset.es = element.dataset.es;
       element.replaceWith(link);
     }
     link.href = url;
@@ -34,6 +40,60 @@
       link.rel = "noopener noreferrer";
     }
   });
+
+  /* --- Motor de idioma (i18n) --- */
+  const LANGS = ["en", "es"];
+  const DIALOG_LABELS = {
+    en: { repository: "View repository ↗", demo: "View project ↗" },
+    es: { repository: "Ver repositorio ↗", demo: "Ver proyecto ↗" },
+  };
+  const i18nEls = [...document.querySelectorAll("[data-es]")];
+  const enHTML = new Map();
+  i18nEls.forEach((el) => enHTML.set(el, el.innerHTML));
+
+  const setYear = () => {
+    document.querySelectorAll("[data-year]").forEach((el) => {
+      el.textContent = new Date().getFullYear();
+    });
+  };
+
+  const readSavedLang = () => {
+    try {
+      const saved = localStorage.getItem("lang");
+      return LANGS.includes(saved) ? saved : "en";
+    } catch (_) {
+      return "en";
+    }
+  };
+
+  let currentLang = "en";
+  let currentProjectKey = null;
+  const dialog = document.querySelector(".project-dialog");
+
+  const applyLang = (lang) => {
+    if (!LANGS.includes(lang)) lang = "en";
+    currentLang = lang;
+    i18nEls.forEach((el) => {
+      el.innerHTML = lang === "es" ? el.dataset.es : enHTML.get(el);
+    });
+    document.documentElement.lang = lang;
+    document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
+    });
+    setYear();
+    if (dialog && dialog.open && currentProjectKey) renderDialog(currentProjectKey);
+    try {
+      localStorage.setItem("lang", lang);
+    } catch (_) {
+      /* Sin almacenamiento: el idioma solo dura esta visita. */
+    }
+  };
+
+  document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+    btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  });
+
+  /* --- Progreso de lectura y navegación por secciones --- */
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const progress = document.querySelector(".reading-progress");
   const navLinks = [...document.querySelectorAll(".section-nav a")];
@@ -96,6 +156,7 @@
     });
   }
 
+  /* --- Movimiento sutil de los carteles --- */
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   document.querySelectorAll(".poster").forEach((poster) => {
     poster.addEventListener("pointermove", (event) => {
@@ -116,51 +177,59 @@
     });
   });
 
-  const dialog = document.querySelector(".project-dialog");
-  let opener;
+  /* --- Ficha de proyecto (bilingüe) --- */
   const setText = (id, text) => {
     document.getElementById(id).textContent = text;
   };
+  function renderDialog(key) {
+    const project = config.projects?.[key];
+    if (!project) return;
+    const t = project[currentLang] || project.en || {};
+    setText("dialog-title", t.title || "");
+    setText("dialog-category", t.category || "");
+    setText("dialog-summary", t.summary || "");
+    const body = document.getElementById("dialog-body");
+    body.replaceChildren(
+      ...(t.paragraphs || []).map((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        return p;
+      }),
+    );
+    const tags = document.getElementById("dialog-tags");
+    tags.replaceChildren(
+      ...(t.stack || []).map((text) => {
+        const span = document.createElement("span");
+        span.textContent = text;
+        return span;
+      }),
+    );
+    const links = document.getElementById("dialog-links");
+    links.replaceChildren();
+    const labels = DIALOG_LABELS[currentLang] || DIALOG_LABELS.en;
+    for (const [url, label] of [
+      [project.repository, labels.repository],
+      [project.demo, labels.demo],
+    ]) {
+      if (!url || !/^https?:\/\//i.test(url)) continue;
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = label;
+      link.className = "text-link";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      links.append(link);
+    }
+  }
+
+  let opener;
   if (dialog) {
     document.querySelectorAll("[data-project]").forEach((button) => {
       button.addEventListener("click", () => {
-        const project = config.projects?.[button.dataset.project];
-        if (!project) return;
+        if (!config.projects?.[button.dataset.project]) return;
         opener = button;
-        setText("dialog-title", project.title);
-        setText("dialog-category", project.category);
-        setText("dialog-summary", project.summary);
-        const body = document.getElementById("dialog-body");
-        body.replaceChildren(
-          ...project.paragraphs.map((text) => {
-            const p = document.createElement("p");
-            p.textContent = text;
-            return p;
-          }),
-        );
-        const tags = document.getElementById("dialog-tags");
-        tags.replaceChildren(
-          ...project.stack.map((text) => {
-            const span = document.createElement("span");
-            span.textContent = text;
-            return span;
-          }),
-        );
-        const links = document.getElementById("dialog-links");
-        links.replaceChildren();
-        for (const [url, label] of [
-          [project.repository, "View repository ↗"],
-          [project.demo, "View project ↗"],
-        ]) {
-          if (!url || !/^https?:\/\//i.test(url)) continue;
-          const link = document.createElement("a");
-          link.href = url;
-          link.textContent = label;
-          link.className = "text-link";
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          links.append(link);
-        }
+        currentProjectKey = button.dataset.project;
+        renderDialog(currentProjectKey);
         dialog.showModal();
         document.body.classList.add("dialog-open");
         dialog.scrollTop = 0;
@@ -183,10 +252,11 @@
     });
     dialog.addEventListener("close", () => {
       document.body.classList.remove("dialog-open");
+      currentProjectKey = null;
       opener?.focus({ preventScroll: true });
     });
   }
-  document.querySelectorAll("[data-year]").forEach((el) => {
-    el.textContent = new Date().getFullYear();
-  });
+
+  /* Idioma inicial (recordado o inglés) — se aplica al final. */
+  applyLang(readSavedLang());
 })();

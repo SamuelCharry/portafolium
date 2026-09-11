@@ -22,7 +22,9 @@
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#about">Skip to content</a>
+    <a class="skip-link" href="#about" data-es="Saltar al contenido"
+      >Skip to content</a
+    >
     <div class="reading-progress" aria-hidden="true"></div>
 
     <!-- HEADER: Los destinos se editan en js/content.js. -->
@@ -30,29 +32,46 @@
       <a class="wordmark" href="#home" aria-label="Samuel Charry, home"
         >SC<span>·</span></a
       >
-      <nav class="social-nav" aria-label="Social links">
-        <a href="mailto:s.charryt27@gmail.com" data-social="email">MAIL</a>
-        <a
-          href="https://linkedin.com/in/SamuelCharry"
-          data-social="linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
-          >LINKEDIN</a
-        >
-        <a
-          href="https://github.com/SamuelCharry"
-          data-social="github"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GITHUB</a
-        >
-      </nav>
+      <div class="header-right">
+        <!-- Selector de idioma: inglés por defecto; la elección se recuerda. -->
+        <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        <nav class="social-nav" aria-label="Social links">
+          <a href="mailto:s.charryt27@gmail.com" data-social="email">MAIL</a>
+          <a
+            href="https://www.linkedin.com/in/samuel-charry-1670152b4/"
+            data-social="linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LINKEDIN</a
+          >
+          <a
+            href="https://github.com/SamuelCharry"
+            data-social="github"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GITHUB</a
+          >
+        </nav>
+      </div>
     </header>
     <nav class="section-nav" aria-label="Page sections">
-      <a href="#about"><span class="nav-number">01</span> about</a>
-      <a href="#projects"><span class="nav-number">02</span> projects</a>
-      <a href="#education"><span class="nav-number">03</span> education</a>
-      <a href="#work"><span class="nav-number">04</span> work</a>
+      <a href="#about"
+        ><span class="nav-number">01</span> <span data-es="perfil">about</span></a
+      >
+      <a href="#projects"
+        ><span class="nav-number">02</span>
+        <span data-es="proyectos">projects</span></a
+      >
+      <a href="#education"
+        ><span class="nav-number">03</span>
+        <span data-es="educación">education</span></a
+      >
+      <a href="#work"
+        ><span class="nav-number">04</span> <span data-es="trabajo">work</span></a
+      >
     </nav>
 
     <main>
@@ -71,14 +90,16 @@
           <span>SAMUEL</span><span>CHARRY</span><span>PORTAFOLIO</span>
         </h1>
         <div class="hero-note">
-          <p>
-            Systems & Computing Engineering.<br />Curious by nature. Learning by
-            building.
+          <p
+            data-es="Ingeniería de Sistemas y Computación.<br />Curioso por naturaleza. Aprendo construyendo."
+          >
+            Systems &amp; Computing Engineering.<br />Curious by nature. Learning
+            by building.
           </p>
           <span>BOGOTÁ, COLOMBIA</span>
         </div>
         <a class="scroll-cue" href="#about"
-          ><span>SCROLL TO MEET ME</span
+          ><span data-es="DESLIZA PARA CONOCERME">SCROLL TO MEET ME</span
           ><span class="scroll-line" aria-hidden="true"></span
         ></a>
       </section>
@@ -86,30 +107,44 @@
       <!-- 01 / ABOUT: El texto sigue la presentación de diseño. -->
       <section class="section about" id="about" aria-labelledby="about-title">
         <div class="section-label">
-          <span>01 / ABOUT</span><span>A LITTLE CONTEXT</span>
+          <span data-es="01 / PERFIL">01 / ABOUT</span
+          ><span data-es="UN POCO DE CONTEXTO">A LITTLE CONTEXT</span>
         </div>
         <div class="about-grid">
           <div class="about-copy">
-            <h2 class="display" id="about-title">
+            <h2
+              class="display"
+              id="about-title"
+              data-es="LA PERSONA<br />DETRÁS DEL<br /><em>CÓDIGO.</em>"
+            >
               THE PERSON<br />BEHIND<br /><em>THE CODE.</em>
             </h2>
-            <p class="lead">
+            <p
+              class="lead"
+              data-es="Hola, soy Samuel. Me gusta entender cómo funcionan las cosas. Y luego hacer que funcionen un poco mejor."
+            >
               Hi, I'm Samuel. I like understanding how things work. Then making
               them work a little better.
             </p>
-            <p>
-              I'm a final-semester Systems & Computing Engineering student at
+            <p
+              data-es="Soy estudiante de últimos semestres de Ingeniería de Sistemas y Computación en la Universidad de los Andes, en Bogotá. Trabajo en la intersección entre sistemas embebidos y machine learning, y disfruto construir de principio a fin: desde el modelo hasta la app y la infraestructura que la rodea."
+            >
+              I'm a final-semester Systems &amp; Computing Engineering student at
               Universidad de los Andes in Bogotá. I work at the intersection of
               embedded systems and machine learning, and I enjoy building things
               end to end — from the model to the app and the infrastructure
               around it.
             </p>
-            <p>
+            <p
+              data-es="Me gusta liderar equipos y tomar la iniciativa. Hacer la primera pregunta, reunir a la gente y convertir una idea en algo que podamos probar de verdad."
+            >
               I like leading teams and taking initiative. Asking the first
               question, getting people together, and turning an idea into
               something we can actually try.
             </p>
-            <p>
+            <p
+              data-es="Busco una práctica o un rol junior, en Bogotá o remoto, donde pueda construir sistemas reales junto a ingenieros de quienes aprender."
+            >
               I'm looking for an internship or junior role, in Bogotá or
               remotely, where I can build real systems alongside engineers I can
               learn from.
@@ -118,6 +153,7 @@
               class="text-link"
               href="mailto:s.charryt27@gmail.com"
               data-social="email"
+              data-es="Hablemos <span aria-hidden=&quot;true&quot;>↗</span>"
               >Let's talk <span aria-hidden="true">↗</span></a
             >
           </div>
@@ -130,13 +166,14 @@
               loading="lazy"
             />
             <figcaption>
-              <span>Better things happen with a team.</span
+              <span data-es="Las mejores cosas pasan en equipo."
+                >Better things happen with a team.</span
               ><span>BOGOTÁ, CO</span>
             </figcaption>
           </figure>
         </div>
         <div class="stack">
-          <span>TOOLS I WORK WITH</span>
+          <span data-es="HERRAMIENTAS QUE USO">TOOLS I WORK WITH</span>
           <p>
             Python <b>·</b> C/C++ <b>·</b> Java <b>·</b> Node.js <b>·</b> SQL
             <b>·</b> Git <b>·</b> Flutter <b>·</b> PyTorch
@@ -150,14 +187,22 @@
         aria-labelledby="projects-title"
       >
         <div class="section-label">
-          <span>02 / PROJECTS</span
-          ><span>A FEW THINGS I'VE PUT MY MIND TO</span>
+          <span data-es="02 / PROYECTOS">02 / PROJECTS</span
+          ><span data-es="ALGUNAS COSAS EN LAS QUE ME HE ENFOCADO"
+            >A FEW THINGS I'VE PUT MY MIND TO</span
+          >
         </div>
         <div class="section-heading">
-          <h2 class="display" id="projects-title">
+          <h2
+            class="display"
+            id="projects-title"
+            data-es="AHORA<br /><em>EN CARTELERA.</em>"
+          >
             NOW<br /><em>SHOWING.</em>
           </h2>
-          <p>
+          <p
+            data-es="Algunos proyectos. Distintas preguntas.<br />Las mismas ganas de entender las cosas."
+          >
             A few projects. Different questions.<br />The same urge to figure
             things out.
           </p>
@@ -171,20 +216,25 @@
               aria-haspopup="dialog"
               aria-label="Read about ENAd Móvil"
             >
-              <span class="poster-top">01 / MOBILE DEVELOPMENT</span>
+              <span class="poster-top" data-es="01 / DESARROLLO MÓVIL"
+                >01 / MOBILE DEVELOPMENT</span
+              >
               <span class="poster-enad-title"
-                >ENAd<br />MÓVIL<span class="poster-subtitle"
+                >ENAd<br />MÓVIL<span
+                  class="poster-subtitle"
+                  data-es="APRENDER NO<br />NECESITA SEÑAL."
                   >LEARNING DOESN'T<br />NEED A SIGNAL.</span
                 ></span
               >
               <span class="poster-bottom"
-                ><span>FLUTTER · FIREBASE<br />BUILT WITH A TEAM OF SIX</span
+                ><span data-es="FLUTTER · FIREBASE<br />HECHO EN EQUIPO DE SEIS"
+                  >FLUTTER · FIREBASE<br />BUILT WITH A TEAM OF SIX</span
                 ><span class="poster-open" aria-hidden="true">↗</span></span
               >
             </button>
             <div class="project-caption">
               <h3>ENAd Móvil</h3>
-              <span>Offline-first education</span>
+              <span data-es="Educación sin conexión">Offline-first education</span>
             </div>
           </article>
           <article class="project">
@@ -195,18 +245,33 @@
               aria-haspopup="dialog"
               aria-label="Read about Kevin’s Joyeros"
             >
-              <span class="poster-top">02 / KEVIN'S JOYEROS</span>
-              <span class="poster-kevin-title"
-                >K<span class="kevin-name">KEVIN'S<br />JOYEROS</span></span
+              <span class="poster-top" data-es="02 / CLASIFICADO"
+                >02 / CLASSIFIED</span
               >
+              <span class="kevin-stamp" aria-hidden="true">TOP SECRET</span>
+              <span class="kevin-file">
+                <span
+                  class="kevin-clearance"
+                  data-es="ACCESO: NIVEL 5 · SOLO AUTORIZADOS"
+                  >CLEARANCE: LEVEL 5 · EYES ONLY</span
+                >
+                <span class="kevin-lines">
+                  <span data-es="CASO # __________">CASE # __________</span>
+                  <span data-es="EXP. # __________">FILE # __________</span>
+                </span>
+              </span>
               <span class="poster-bottom"
-                ><span>A STORY TO TELL<br />CASE STUDY COMING SOON</span
+                ><span
+                  data-es="CASO DE ESTUDIO EN PROCESO<br />USO OFICIAL ÚNICAMENTE"
+                  >CASE STUDY IN PROGRESS<br />FOR OFFICIAL USE ONLY</span
                 ><span class="poster-open" aria-hidden="true">↗</span></span
               >
             </button>
             <div class="project-caption">
               <h3>Kevin's Joyeros</h3>
-              <span>Case study in progress</span>
+              <span data-es="Caso de estudio en proceso"
+                >Case study in progress</span
+              >
             </div>
           </article>
           <article class="project">
@@ -218,20 +283,25 @@
               aria-label="Read about the text classification project"
             >
               <span class="poster-top">03 / MACHINE LEARNING</span>
-              <span class="poster-data-title"
+              <span
+                class="poster-data-title"
+                data-es="CADA<br />PALABRA<br />CUENTA."
                 >EVERY<br />WORD<br />COUNTS.</span
               >
               <span class="data-number" aria-hidden="true">39</span>
               <span class="poster-bottom"
                 ><span
+                  data-es="39 CLASES · TEXTOS HISTÓRICOS<br />5º DE 30+ EQUIPOS · KAGGLE"
                   >39 CLASSES · HISTORICAL TEXTS<br />5TH OF 30+ TEAMS ·
                   KAGGLE</span
                 ><span class="poster-open" aria-hidden="true">↗</span></span
               >
             </button>
             <div class="project-caption">
-              <h3>Words into data</h3>
-              <span>Multiclass text classification</span>
+              <h3 data-es="De palabras a datos">Words into data</h3>
+              <span data-es="Clasificación de texto multiclase"
+                >Multiclass text classification</span
+              >
             </div>
           </article>
           <article class="project">
@@ -242,31 +312,68 @@
               aria-haspopup="dialog"
               aria-label="Read about federated learning on microcontrollers"
             >
-              <span class="poster-top">04 / UNDERGRADUATE THESIS</span>
-              <span class="poster-thesis-title"
+              <span class="poster-top" data-es="04 / TRABAJO DE GRADO"
+                >04 / UNDERGRADUATE THESIS</span
+              >
+              <span
+                class="poster-thesis-title"
+                data-es="DISPOSITIVOS<br />PEQUEÑOS.<br /><span>APRENDIZAJE<br />COMPARTIDO.</span>"
                 >SMALL<br />DEVICES.<br /><span
                   >SHARED<br />LEARNING.</span
                 ></span
               >
               <span class="poster-bottom"
-                ><span>ESP32 · STM32<br />FEDERATED LEARNING · 2026</span
+                ><span data-es="ESP32 · STM32<br />APRENDIZAJE FEDERADO · 2026"
+                  >ESP32 · STM32<br />FEDERATED LEARNING · 2026</span
                 ><span class="poster-open" aria-hidden="true">↗</span></span
               >
             </button>
             <div class="project-caption">
-              <h3>Learning at the edge</h3>
-              <span>Embedded systems × ML</span>
+              <h3 data-es="Aprender en el borde">Learning at the edge</h3>
+              <span data-es="Sistemas embebidos × ML">Embedded systems × ML</span>
+            </div>
+          </article>
+          <article class="project">
+            <button
+              class="poster poster-fitness"
+              type="button"
+              data-project="fitness"
+              aria-haspopup="dialog"
+              aria-label="Read about Daily Fitness"
+            >
+              <span class="poster-top" data-es="05 / PROYECTO PERSONAL"
+                >05 / PERSONAL PROJECT</span
+              >
+              <span class="poster-fitness-title"
+                >DAILY<br />FITNESS<span
+                  class="poster-fitness-sub"
+                  data-es="MÁS FUERTE,<br />UN DÍA A LA VEZ."
+                  >STRONGER,<br />ONE DAY AT A TIME.</span
+                ></span
+              >
+              <span class="poster-bottom"
+                ><span data-es="APP WEB · EN VIVO<br />PLANEA Y REGISTRA"
+                  >WEB APP · LIVE<br />PLAN &amp; TRACK</span
+                ><span class="poster-open" aria-hidden="true">↗</span></span
+              >
+            </button>
+            <div class="project-caption">
+              <h3>Daily Fitness</h3>
+              <span data-es="Registro de entrenamiento">Training tracker</span>
             </div>
           </article>
         </div>
         <noscript
-          ><p class="noscript-note">
+          ><p
+            class="noscript-note"
+            data-es="Resúmenes de proyectos: ENAd Móvil es una app de evaluación offline-first para docentes rurales. De palabras a datos es un proyecto de clasificación de textos históricos en 39 clases. Aprender en el borde explora aprendizaje federado en microcontroladores ESP32 y STM32. Daily Fitness es una app web para planear y registrar entrenamientos. Los detalles de Kevin's Joyeros llegan pronto. Activa JavaScript para abrir las notas completas."
+          >
             Project summaries: ENAd Móvil is an offline-first assessment app for
             rural teachers. Words into data is a 39-class historical text
             classification project. Learning at the edge explores federated
-            learning on ESP32 and STM32 microcontrollers. Details for Kevin's
-            Joyeros are coming soon. Enable JavaScript to open the full project
-            notes.
+            learning on ESP32 and STM32 microcontrollers. Daily Fitness is a web
+            app to plan and track training. Details for Kevin's Joyeros are
+            coming soon. Enable JavaScript to open the full project notes.
           </p></noscript
         >
         <a
@@ -275,6 +382,7 @@
           data-social="github"
           target="_blank"
           rel="noopener noreferrer"
+          data-es="Más en GitHub <span aria-hidden=&quot;true&quot;>↗</span>"
           >More on GitHub <span aria-hidden="true">↗</span></a
         >
       </section>
@@ -286,38 +394,60 @@
         aria-labelledby="education-title"
       >
         <div class="section-label">
-          <span>03 / EDUCATION</span><span>ALWAYS A STUDENT</span>
+          <span data-es="03 / EDUCACIÓN">03 / EDUCATION</span
+          ><span data-es="SIEMPRE ESTUDIANTE">ALWAYS A STUDENT</span>
         </div>
         <div class="education-grid">
-          <h2 class="display" id="education-title">
+          <h2
+            class="display"
+            id="education-title"
+            data-es="SIGO<br />PREGUNTANDO<br /><em>POR QUÉ.</em>"
+          >
             STILL<br />ASKING<br /><em>WHY.</em>
           </h2>
           <div class="education-content">
             <div class="degree">
-              <span class="eyebrow">2023 — 2027 · IN PROGRESS</span>
+              <span class="eyebrow" data-es="2023 — 2027 · EN CURSO"
+                >2023 — 2027 · IN PROGRESS</span
+              >
               <h3>Universidad<br />de los Andes</h3>
-              <p>Systems & Computing Engineering<br />Bogotá, Colombia</p>
+              <p data-es="Ingeniería de Sistemas y Computación<br />Bogotá, Colombia">
+                Systems &amp; Computing Engineering<br />Bogotá, Colombia
+              </p>
             </div>
             <div class="communities">
-              <h3>Learning with other people</h3>
+              <h3 data-es="Aprender con otras personas">
+                Learning with other people
+              </h3>
               <ul>
                 <li>
-                  <span>Hacker Hive</span><span>Research group · Member</span>
+                  <span>Hacker Hive</span
+                  ><span data-es="Grupo de investigación · Miembro · 2025-1"
+                    >Research group · Member · 2025-1</span
+                  >
                 </li>
                 <li>
                   <span>Quantum Computing</span
-                  ><span>Research group · Member</span>
+                  ><span data-es="Grupo de investigación · Miembro · 2026-2"
+                    >Research group · Member · 2026-2</span
+                  >
                 </li>
-                <li><span>Computer Society</span><span>Member</span></li>
                 <li>
-                  <span>HPC Support</span><span>Volunteer · 2024–present</span>
+                  <span>Computer Society</span
+                  ><span data-es="Miembro · 2026-2">Member · 2026-2</span>
+                </li>
+                <li>
+                  <span>HPC Support</span
+                  ><span data-es="Voluntario · 2024–actualidad"
+                    >Volunteer · 2024–present</span
+                  >
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div class="credentials">
-          <h3>Certifications & learning</h3>
+          <h3 data-es="Certificaciones y formación">Certifications &amp; learning</h3>
           <a
             class="credential"
             href="certificaciones/201IH26005191-20-08-2026-ETRF%20(2).pdf"
@@ -326,10 +456,12 @@
             ><span class="credential-index">01</span>
             <div>
               <h4>IELTS Academic</h4>
-              <p>Overall 7.5 · English C1</p>
+              <p data-es="Global 7.5 · Inglés C1">Overall 7.5 · English C1</p>
             </div>
             <span class="credential-year">2026</span
-            ><span class="credential-action"
+            ><span
+              class="credential-action"
+              data-es="Ver certificado <span aria-hidden=&quot;true&quot;>↗</span>"
               >View certificate <span aria-hidden="true">↗</span></span
             ></a
           >
@@ -341,15 +473,22 @@
             ><span class="credential-index">02</span>
             <div>
               <h4>HPC Summer School</h4>
-              <p>Universidad de los Andes · 20 academic hours</p>
+              <p data-es="Universidad de los Andes · 20 horas académicas">
+                Universidad de los Andes · 20 academic hours
+              </p>
             </div>
             <span class="credential-year">2024</span
-            ><span class="credential-action"
+            ><span
+              class="credential-action"
+              data-es="Ver certificado <span aria-hidden=&quot;true&quot;>↗</span>"
               >View certificate <span aria-hidden="true">↗</span></span
             ></a
           >
-          <p class="additional-course">
-            Also studied: Introduction to High-Performance Computing · edX.
+          <p
+            class="additional-course"
+            data-es="Ponente · Telefónica GPS (2025-1) — una charla sobre churn de clientes."
+          >
+            Speaker · Telefónica GPS (2025-1) — a talk on customer churn.
           </p>
         </div>
       </section>
@@ -357,27 +496,40 @@
       <!-- 04 / WORK: CTA personal y descargas del CV en ambos idiomas. -->
       <section class="section work" id="work" aria-labelledby="work-title">
         <div class="section-label">
-          <span>04 / WORK</span><span>THE NEXT CHAPTER</span>
+          <span data-es="04 / TRABAJO">04 / WORK</span
+          ><span data-es="EL SIGUIENTE CAPÍTULO">THE NEXT CHAPTER</span>
         </div>
         <div class="work-grid">
-          <h2 class="display" id="work-title">
+          <h2
+            class="display"
+            id="work-title"
+            data-es="TODOS<br />EMPEZAMOS<br /><em>EN ALGÚN LADO.</em>"
+          >
             EVERYONE<br />STARTS<br /><em>SOMEWHERE.</em>
           </h2>
           <div class="work-copy">
-            <p class="lead">
+            <p
+              class="lead"
+              data-es="Busco mi primera oportunidad.<br />Quizá empiece con una conversación."
+            >
               I'm looking for my first opportunity.<br />Maybe it starts with a
               conversation.
             </p>
-            <p>
+            <p
+              data-es="Traigo proyectos prácticos, curiosidad y ganas de tomar la iniciativa. Busco una práctica o un rol junior de ingeniería donde pueda aportar, hacer preguntas y seguir aprendiendo."
+            >
               I bring hands-on projects, curiosity, and a willingness to take
               initiative. I'm looking for an internship or junior engineering
               role where I can contribute, ask questions, and keep learning.
             </p>
-            <p class="location-note">BOGOTÁ OR REMOTE</p>
+            <p class="location-note" data-es="BOGOTÁ O REMOTO">
+              BOGOTÁ OR REMOTE
+            </p>
             <a
               class="contact-link"
               href="mailto:s.charryt27@gmail.com"
               data-social="email"
+              data-es="Hablemos <span aria-hidden=&quot;true&quot;>↗</span>"
               >Let's talk <span aria-hidden="true">↗</span></a
             >
             <div class="resume-links">
@@ -391,8 +543,10 @@
         </div>
         <footer class="footer">
           <a href="#home">SAMUEL CHARRY</a
-          ><span>© <span data-year>2026</span> · MADE WITH CURIOSITY.</span
-          ><a href="#home">BACK TO TOP ↑</a>
+          ><span
+            data-es="© <span data-year>2026</span> · HECHO CON CURIOSIDAD."
+            >© <span data-year>2026</span> · MADE WITH CURIOSITY.</span
+          ><a href="#home" data-es="VOLVER ARRIBA ↑">BACK TO TOP ↑</a>
         </footer>
       </section>
     </main>
@@ -404,6 +558,7 @@
           class="dialog-close"
           type="button"
           aria-label="Close project details"
+          data-es="CERRAR <span aria-hidden=&quot;true&quot;>×</span>"
         >
           CLOSE <span aria-hidden="true">×</span>
         </button>
