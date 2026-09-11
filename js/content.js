@@ -38,7 +38,7 @@ window.PORTFOLIO = {
       repository: null,
       demo: null,
       en: {
-        title: "Kevin's Joyeros",
+        title: "Classified",
         category: "CLASSIFIED · CASE STUDY IN PROGRESS",
         summary:
           "Another project I want to share. I'm still putting its story together.",
@@ -48,7 +48,7 @@ window.PORTFOLIO = {
         stack: [], // Completar con las tecnologías reales del proyecto.
       },
       es: {
-        title: "Kevin's Joyeros",
+        title: "Clasificado",
         category: "CLASIFICADO · CASO DE ESTUDIO EN PROCESO",
         summary:
           "Otro proyecto que quiero compartir. Todavía estoy armando su historia.",
@@ -133,9 +133,10 @@ window.PORTFOLIO = {
       en: {
         title: "Daily Fitness",
         category: "PERSONAL PROJECT",
-        summary: "A simple web app to plan and track daily training.",
+        summary: "A training tracker born from my passion for bodybuilding.",
         paragraphs: [
-          "A personal project I built to organize workouts and keep a daily training log right in the browser.",
+          "Daily Fitness comes out of my passion for bodybuilding. I built it as a tracker to organize and log my training, day by day.",
+          "The amount of misinformation in fitness genuinely frustrates me. So I made it a compilation of what I've tried and learned over the years — everything in one place, grounded in my own experience.",
         ],
         stack: ["HTML", "CSS", "JavaScript"], // Ajusta a las tecnologías reales.
       },
@@ -143,9 +144,10 @@ window.PORTFOLIO = {
         title: "Daily Fitness",
         category: "PROYECTO PERSONAL",
         summary:
-          "Una app web sencilla para planear y registrar el entrenamiento diario.",
+          "Un tracker de entrenamiento que nace de mi pasión por el culturismo.",
         paragraphs: [
-          "Un proyecto personal que construí para organizar rutinas y llevar un registro diario de entrenamiento directamente en el navegador.",
+          "Daily Fitness nace de mi pasión por el culturismo. Lo construí como un tracker para organizar y registrar mi entrenamiento, día a día.",
+          "Me estresa mucho la cantidad de desinformación que hay en el fitness. Por eso lo pensé como una recopilación de lo que he probado y aprendido a lo largo de los años: todo en un solo lugar y basado en mi propia experiencia.",
         ],
         stack: ["HTML", "CSS", "JavaScript"],
       },

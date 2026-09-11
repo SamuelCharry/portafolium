@@ -1223,10 +1223,10 @@ figcaption span:last-child {
   font-weight: 700;
 }
 
-/* Cartel Daily Fitness. */
+/* Cartel Daily Fitness (rojo). */
 .poster-fitness {
-  background: #0e0f0c;
-  color: #d7ff3e;
+  background: #c0271f;
+  color: #fff3f0;
 }
 .poster-fitness-title {
   font: 400 clamp(30px, 3vw, 52px) / 1.04 var(--display);
@@ -1237,7 +1237,7 @@ figcaption span:last-child {
   display: block;
   font: 700 clamp(13px, 1.15vw, 20px) / 1.25 var(--body);
   letter-spacing: -0.01em;
-  color: #9bb43a;
+  color: #f6b3aa;
   border-top: 2px solid currentColor;
   margin-top: 18px;
   padding-top: 12px;

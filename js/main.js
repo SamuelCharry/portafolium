@@ -60,9 +60,9 @@
   const readSavedLang = () => {
     try {
       const saved = localStorage.getItem("lang");
-      return LANGS.includes(saved) ? saved : "en";
+      return LANGS.includes(saved) ? saved : "es";
     } catch (_) {
-      return "en";
+      return "es";
     }
   };
 
